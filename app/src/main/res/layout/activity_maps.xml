@@ -4,15 +4,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/add_poi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="addPoi"
+        android:text="@string/add_poi" />
+
+    <Button
+        android:id="@+id/grant_permissions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/grant_location_permissions" />
+
+    <Button
+        android:id="@+id/grant_background_permissions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/grant_background_permissions" />
+
 </RelativeLayout>

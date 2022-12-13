@@ -2,5 +2,6 @@
 <resources>
     <string name="app_name">Альтертревел</string>
     <string name="add_poi">Добавить место</string>
-    <string name="grant_permissions">Добавить разрешения</string>
+    <string name="grant_location_permissions">Добавить разрешения</string>
+    <string name="grant_background_permissions">Разрешить работу в фоне</string>
 </resources>
