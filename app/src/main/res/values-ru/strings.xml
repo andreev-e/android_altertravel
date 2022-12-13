@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Альтертревел</string>
+    <string name="add_poi">Добавить место</string>
+    <string name="grant_permissions">Добавить разрешения</string>
+</resources>

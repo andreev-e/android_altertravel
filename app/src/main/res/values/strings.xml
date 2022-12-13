@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Altertravel</string>
-    <string name="app_name_ru">Альтертревел</string>
+    <string name="add_poi">Add POI</string>
+    <string name="grant_permissions">Grant permissions</string>
 </resources>
