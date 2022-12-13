@@ -81,11 +81,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         backgroundPermissionsButton.setVisibility(View.INVISIBLE)
 
         locationPermissionsButton.setOnClickListener {
-            grantLocationPermissions()
+            permissionRequest.launch(
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                )
+            )
         };
 
         backgroundPermissionsButton.setOnClickListener {
-            grantBackgroundPermissions()
+            permissionRequest.launch(
+                arrayOf(
+                    Manifest.permission.ACCESS_BACKGROUND_LOCATION
+                )
+            )
         };
 
         if (ContextCompat.checkSelfPermission(
@@ -151,28 +160,4 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     fun addPoi(view: View) {
         Toast.makeText(this, "addPoi pressed", Toast.LENGTH_LONG).show()
     }
-
-    @RequiresApi(Build.VERSION_CODES.N)
-    fun grantLocationPermissions() {
-        permissionRequest.launch(
-            arrayOf(
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION,
-            )
-        )
-    }
-
-    @RequiresApi(Build.VERSION_CODES.N)
-    fun grantBackgroundPermissions() {
-        Log.d(TAG, "grantBackgroundPermissions")
-
-        permissionRequest.launch(
-            arrayOf(
-                Manifest.permission.ACCESS_BACKGROUND_LOCATION
-            )
-        )
-
-        Toast.makeText(this, "grantPermissions pressed", Toast.LENGTH_LONG).show()
-    }
-
 }
