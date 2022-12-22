@@ -2,6 +2,7 @@ package com.altertravel
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
@@ -22,10 +23,11 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
-
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
-    GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener,
-    ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnCameraMoveListener,
+class MapsActivity : AppCompatActivity(),
+    OnMapReadyCallback,
+    GoogleMap.OnMyLocationClickListener,
+    ActivityCompat.OnRequestPermissionsResultCallback,
+    GoogleMap.OnCameraMoveListener,
     LocationListener {
 
     private lateinit var mMap: GoogleMap
@@ -33,7 +35,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     private lateinit var currentLocationMarker: Marker
     private lateinit var mapFragment: SupportMapFragment
     private var firstFixDone = false
-    private var TAG = "MainAct"
+    private var tag = "MainAct"
     private lateinit var permissionRequest: ActivityResultLauncher<Array<String>>
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -50,16 +52,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         ) { permissions ->
             when {
                 permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
-                    Log.d(TAG, "Precise location access granted.")
+                    Log.d(tag, "Precise location access granted.")
                 }
                 permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
-                    Log.d(TAG, "Only approximate location access granted.")
+                    Log.d(tag, "Only approximate location access granted.")
                 }
                 permissions.getOrDefault(Manifest.permission.ACCESS_BACKGROUND_LOCATION, false) -> {
-                    Log.d(TAG, "Background location access granted.")
+                    Log.d(tag, "Background location access granted.")
                 }
                 else -> {
-                    Log.d(TAG, "No location access granted.")
+                    Log.d(tag, "No location access granted.")
                 }
             }
 
@@ -121,15 +123,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         ) {
             googleMap.isMyLocationEnabled = true
             Toast.makeText(this, "isMyLocationEnabled", Toast.LENGTH_LONG).show()
+            googleMap.setOnCameraMoveListener(this);
+            googleMap.setOnMyLocationClickListener(this);
         }
 
-        Log.d(TAG, "onMapReady")
+        Log.d(tag, "onMapReady")
         //todo
         // LocationServices.FusedLocationApi.requestLocationUpdates(googleMap, mLocationRequest, this);
     }
 
     override fun onLocationChanged(location: Location) {
-        Log.d(TAG, "onLocationChanged")
+        Log.d(tag, "onLocationChanged")
         currentLocation = LatLng(location.latitude, location.latitude)
         if (!firstFixDone) {
             currentLocationMarker = mMap.addMarker(
@@ -142,22 +146,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     }
 
     override fun onCameraMove() {
-        Log.d(TAG, "onCameraMove")
+//        Log.d(tag, "onCameraMove")
     }
 
-    override fun onMyLocationButtonClick(): Boolean {
-        Log.d(TAG, "onMyLocationButtonClick")
-        Toast.makeText(this, "onMyLocationButtonClick", Toast.LENGTH_LONG).show()
-        return true
-    }
 
     override fun onMyLocationClick(p0: Location) {
-        Log.d(TAG, "onMyLocationClick")
+        Log.d(tag, "onMyLocationClick")
         Toast.makeText(this, "onMyLocationClick", Toast.LENGTH_LONG).show()
-
     }
 
     fun addPoi(view: View) {
-        Toast.makeText(this, "addPoi pressed", Toast.LENGTH_LONG).show()
+        Log.d(tag, "addPoi pressed")
+        val intent = Intent(this, PoiFormActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -23,17 +23,23 @@
 
         <activity
             android:name=".MapsActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Altertravel.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".PoiFormActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Altertravel.NoActionBar">
+        </activity>
+
         <service
             android:name=".MapsActivity"
-            android:foregroundServiceType="location">
-        </service>
+            android:foregroundServiceType="location"></service>
     </application>
 
 </manifest>

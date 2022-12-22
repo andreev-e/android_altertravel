@@ -3,4 +3,10 @@
     <string name="add_poi">Add POI</string>
     <string name="grant_location_permissions">Grant location permissions</string>
     <string name="grant_background_permissions">Grant background permissions</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="adding_poi">Adding poi</string>
+    <string name="location">Location</string>
+    <!-- Strings used for fragments for navigation -->
+
 </resources>

@@ -4,4 +4,8 @@
     <string name="add_poi">Добавить место</string>
     <string name="grant_location_permissions">Добавить разрешения</string>
     <string name="grant_background_permissions">Разрешить работу в фоне</string>
+    <string name="name">Название</string>
+    <string name="description">Описание</string>
+    <string name="adding_poi">Добавление достопримечательности</string>
+    <string name="location">Местоположение</string>
 </resources>
