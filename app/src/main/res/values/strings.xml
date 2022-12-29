@@ -7,6 +7,10 @@
     <string name="description">Description</string>
     <string name="adding_poi">Adding poi</string>
     <string name="location">Location</string>
+    <string name="category">Category</string>
+    <string name="category_architecture">Architecture</string>
+    <string name="category_nature">Nature</string>
+    <string name="category_history_culture">History/Culture</string>
     <!-- Strings used for fragments for navigation -->
 
 </resources>

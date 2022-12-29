@@ -39,7 +39,7 @@
 
         <service
             android:name=".MapsActivity"
-            android:foregroundServiceType="location"></service>
+            android:foregroundServiceType="location" />
     </application>
 
 </manifest>

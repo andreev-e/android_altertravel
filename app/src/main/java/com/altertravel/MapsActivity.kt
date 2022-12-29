@@ -122,7 +122,6 @@ class MapsActivity : AppCompatActivity(),
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             googleMap.isMyLocationEnabled = true
-            Toast.makeText(this, "isMyLocationEnabled", Toast.LENGTH_LONG).show()
             googleMap.setOnCameraMoveListener(this);
             googleMap.setOnMyLocationClickListener(this);
         }
@@ -146,7 +145,7 @@ class MapsActivity : AppCompatActivity(),
     }
 
     override fun onCameraMove() {
-//        Log.d(tag, "onCameraMove")
+        Toast.makeText(this, "onCameraMove", Toast.LENGTH_LONG).show()
     }
 
 

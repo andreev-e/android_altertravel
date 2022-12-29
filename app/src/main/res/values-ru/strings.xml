@@ -8,4 +8,8 @@
     <string name="description">Описание</string>
     <string name="adding_poi">Добавление достопримечательности</string>
     <string name="location">Местоположение</string>
+    <string name="category">Категория</string>
+    <string name="category_architecture">Архитектура</string>
+    <string name="category_nature">Nature</string>
+    <string name="category_history_culture">История/Культура</string>
 </resources>
